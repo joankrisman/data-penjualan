@@ -1,0 +1,58 @@
+import javax.swing.*;
+
+public class FormKasir extends JFrame {
+    private JLabel lblNamaKasir, lblUsername, lblPassword;
+    private JTextField txtNamaKasir, txtUsername;
+    private JPasswordField txtPassword;
+    private JButton btnSimpan;
+
+    public FormKasir() {
+        setTitle("Form Data Kasir");
+        setSize(300, 250);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(null);
+
+        lblNamaKasir = new JLabel("Nama Kasir:");
+        lblUsername = new JLabel("Username:");
+        lblPassword = new JLabel("Password:");
+
+        txtNamaKasir = new JTextField();
+        txtUsername = new JTextField();
+        txtPassword = new JPasswordField();
+
+        btnSimpan = new JButton("Simpan");
+
+        lblNamaKasir.setBounds(20, 20, 100, 25);
+        txtNamaKasir.setBounds(120, 20, 150, 25);
+
+        lblUsername.setBounds(20, 60, 100, 25);
+        txtUsername.setBounds(120, 60, 150, 25);
+
+        lblPassword.setBounds(20, 100, 100, 25);
+        txtPassword.setBounds(120, 100, 150, 25);
+
+        btnSimpan.setBounds(100, 150, 100, 30);
+
+        add(lblNamaKasir);
+        add(txtNamaKasir);
+        add(lblUsername);
+        add(txtUsername);
+        add(lblPassword);
+        add(txtPassword);
+        add(btnSimpan);
+
+        btnSimpan.addActionListener(e -> {
+            String namaKasir = txtNamaKasir.getText();
+            String username = txtUsername.getText();
+            String password = new String(txtPassword.getPassword());
+
+            JOptionPane.showMessageDialog(this,
+                "Data Tersimpan:\nNama: " + namaKasir + "\nUsername: " + username + "\nPassword: " + password);
+        });
+    }
+
+    public static void main(String[] args) {
+        new FormKasir().setVisible(true);
+    }
+}
