@@ -1,0 +1,53 @@
+import javax.swing.*;
+
+public class FormBarang extends JFrame {
+    private JLabel lblNamaBarang, lblBerat, lblJenis;
+    private JTextField txtNamaBarang, txtBerat, txtJenis;
+    private JButton btnSimpan;
+
+    public FormBarang() {
+        setTitle("Data Barang");
+        setSize(300, 250);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setLayout(null);
+
+        lblNamaBarang = new JLabel("Nama Barang:");
+        lblBerat = new JLabel("Berat (kg):");
+        lblJenis = new JLabel("Jenis:");
+
+        txtNamaBarang = new JTextField();
+        txtBerat = new JTextField();
+        txtJenis = new JTextField();
+
+        btnSimpan = new JButton("Simpan");
+
+        lblNamaBarang.setBounds(20, 20, 100, 25);
+        txtNamaBarang.setBounds(120, 20, 140, 25);
+
+        lblBerat.setBounds(20, 60, 100, 25);
+        txtBerat.setBounds(120, 60, 140, 25);
+
+        lblJenis.setBounds(20, 100, 100, 25);
+        txtJenis.setBounds(120, 100, 140, 25);
+
+        btnSimpan.setBounds(100, 150, 100, 30);
+
+        add(lblNamaBarang);
+        add(txtNamaBarang);
+        add(lblBerat);
+        add(txtBerat);
+        add(lblJenis);
+        add(txtJenis);
+        add(btnSimpan);
+
+        btnSimpan.addActionListener(e -> {
+            String nama = txtNamaBarang.getText();
+            String berat = txtBerat.getText();
+            String jenis = txtJenis.getText();
+
+            JOptionPane.showMessageDialog(this, "Data Barang Tersimpan:\n" +
+                    "Nama: " + nama + "\nBerat: " + berat + " kg\nJenis: " + jenis);
+        });
+    }
+}
